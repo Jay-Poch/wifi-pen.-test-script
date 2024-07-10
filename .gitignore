@@ -1,0 +1,4 @@
+wordlists
+hashcat_files
+pcaps/*
+test.py
