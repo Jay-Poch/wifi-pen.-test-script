@@ -1,5 +1,6 @@
 # this is my try at porting crach.sh to python
  #imports
+import colorama
 import os
 import time
 import sqlite3
@@ -21,6 +22,7 @@ merged_file_name = None
 session_name_recoverie = "None"
 #capture menue
 capture_mode = None
+colorama.init()
 #functions
 
 def sql(command):
@@ -203,7 +205,7 @@ sql("INSERT INTO settings (first_start) VALUES (0)")
 test = sql("SELECT First_start FROM settings")
 
 if str(test)[2:3] == "0" or None:
-    print("first start, setting up")
+    print(colorama.Fore.YELLOW + "first start, setting up" + colorama.Fore.RESET)
     wordlist_folder_temp = input("Enter the location of the wordlists folder: ")
     hashcat_folder_temp = input("Enter the location of the folder where you want to save the hashcat ready files: ")
     airgeddon_folder_temp = input("Enter the location of the airgeddon folder: ")
